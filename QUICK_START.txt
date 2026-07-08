@@ -1,0 +1,15 @@
+QUICK START
+===========
+
+1. Extract this zip.
+2. Push folder to GitHub.
+3. On Jenkins EC2, install docker, awscli, git.
+4. Attach IAM role with docs/ecr-iam-policy.json.
+5. Create Jenkins Pipeline job from SCM.
+6. Script path: Jenkinsfile
+7. Build Now.
+
+Local test:
+
+docker compose up --build -d
+open http://localhost:8080

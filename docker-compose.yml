@@ -1,0 +1,58 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    image: magento-sample-nginx:local
+    container_name: magento-sample-nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - php-fpm
+    networks:
+      - frontend
+      - internal
+
+  php-fpm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: magento-sample-php-fpm:local
+    container_name: magento-sample-php-fpm
+    networks:
+      - internal
+
+  cron:
+    build:
+      context: .
+      dockerfile: docker/cron/Dockerfile
+    image: magento-sample-cron:local
+    container_name: magento-sample-cron
+    networks:
+      - internal
+
+  mysql:
+    image: mysql:8.0
+    container_name: magento-sample-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: magento
+      MYSQL_USER: magento
+      MYSQL_PASSWORD: magento123
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - internal
+
+  redis:
+    image: redis:7-alpine
+    container_name: magento-sample-redis
+    networks:
+      - internal
+
+networks:
+  frontend:
+  internal:
+
+volumes:
+  mysql-data:
