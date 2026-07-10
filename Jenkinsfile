@@ -8,7 +8,7 @@ pipeline {
         ECR_REGISTRY        = '471613013689.dkr.ecr.ap-south-1.amazonaws.com'
         ECR_REPOSITORY      = 'dev/magento'
         ECR_IMAGE           = '471613013689.dkr.ecr.ap-south-1.amazonaws.com/dev/magento'
-        LOCAL_IMAGE_NAME = 'magento-sample'
+        IMAGE_NAME = 'magento-sample'
     }
 
     stages {
