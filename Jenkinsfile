@@ -60,6 +60,17 @@ pipeline {
                 '''
             }
         }
+
+        stage('Verify AWS Connection') {
+            steps {
+                echo 'Verifying Jenkins connection to AWS...'
+
+                sh '''
+                    aws --version
+                    aws sts get-caller-identity
+                '''
+            }
+        }
     }
 
     post {
