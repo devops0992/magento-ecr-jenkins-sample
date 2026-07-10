@@ -2,7 +2,13 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'magento-sample'
+        REPO_URL            = 'https://github.com/devops0992/magento-ecr-jenkins-sample.git'
+        AWS_REGION          = 'ap-south-1'
+
+        ECR_REGISTRY        = '471613013689.dkr.ecr.ap-south-1.amazonaws.com'
+        ECR_REPOSITORY      = 'dev/magento'
+        ECR_IMAGE           = '471613013689.dkr.ecr.ap-south-1.amazonaws.com/dev/magento'
+        LOCAL_IMAGE_NAME = 'magento-sample'
     }
 
     stages {
@@ -68,6 +74,29 @@ pipeline {
                 sh '''
                     aws --version
                     aws sts get-caller-identity
+                '''
+            }
+        }
+
+        stage('Push Image to Amazon ECR') {
+            steps {
+                echo "Pushing image: ${ECR_IMAGE}:${IMAGE_TAG}"
+
+                sh '''
+                    docker push ${ECR_IMAGE}:${IMAGE_TAG}
+                '''
+            }
+        }
+
+        stage('Verify Image in Amazon ECR') {
+            steps {
+                echo 'Verifying the pushed image in Amazon ECR...'
+
+                sh '''
+                    aws ecr describe-images \
+                      --repository-name ${ECR_REPOSITORY} \
+                      --image-ids imageTag=${IMAGE_TAG} \
+                      --region ${AWS_REGION}
                 '''
             }
         }
