@@ -6,7 +6,7 @@ services:
     image: magento-sample-nginx:local
     container_name: magento-sample-nginx
     ports:
-      - "8080:80"
+      - "81:81"
     depends_on:
       - php-fpm
     networks:
