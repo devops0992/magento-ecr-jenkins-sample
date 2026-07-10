@@ -10,7 +10,7 @@ $dbStatus = 'not checked';
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Magento ECR Jenkins Sample</title>
+  <title>Magento ECR Jenkins Sample_1</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.5; }
     .box { border: 1px solid #ddd; border-radius: 8px; padding: 20px; max-width: 760px; }
