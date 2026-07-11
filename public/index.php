@@ -19,7 +19,7 @@ $dbStatus = 'not checked';
 </head>
 <body>
   <div class="box">
-    <h1>Magento Docker Compose → Jenkins → ECR -> 1</h1>
+    <h1>Magento Docker Compose → Jenkins → ECR</h1>
     <p>This sample app is running through <strong>Nginx + PHP-FPM</strong>.</p>
     <p>Build time test: <code><?= htmlspecialchars($time) ?></code></p>
     <p>Use this project to practice building custom Docker images and pushing them to AWS ECR from Jenkins.</p>
