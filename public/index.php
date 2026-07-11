@@ -10,7 +10,7 @@ $dbStatus = 'not checked';
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Magento ECR Jenkins Sample_1</title>
+  <title>Magento ECR Jenkins Sample</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.5; }
     .box { border: 1px solid #ddd; border-radius: 8px; padding: 20px; max-width: 760px; }
@@ -19,7 +19,7 @@ $dbStatus = 'not checked';
 </head>
 <body>
   <div class="box">
-    <h1>Magento Docker Compose → Jenkins → ECR</h1>
+    <h1>Magento Docker Compose → Jenkins → ECR -> 1</h1>
     <p>This sample app is running through <strong>Nginx + PHP-FPM</strong>.</p>
     <p>Build time test: <code><?= htmlspecialchars($time) ?></code></p>
     <p>Use this project to practice building custom Docker images and pushing them to AWS ECR from Jenkins.</p>
